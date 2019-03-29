@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Menu {
     public static void Inicio(){
-        ArrayList<Mesa> listaMesa = new ArrayList<>();
+        ArrayList<ArrayList> listaMesa = new ArrayList<>();
         menu(listaMesa);
     }
     
-    public static void menu(ArrayList<Mesa> listaMesa){
+    public static void menu(ArrayList<ArrayList> listaMesa){
         Scanner in = new Scanner(System.in);
         
         System.out.println("Ingrese la acción a realizar");
