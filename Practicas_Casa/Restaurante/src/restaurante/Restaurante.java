@@ -1,9 +1,4 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restaurante;
 
 import java.util.Scanner;
@@ -18,33 +13,42 @@ public class Restaurante {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("***Restaurante*** ");
+        // Definiendo scanner para pedir datos desde teclado
+        Scanner entrada = new Scanner (System.in);
+        
+        /* Se creo un objeto Persona con el constructor sin parametros  ya que el cleinte debe meter su informacion ahi*/
+        
+        
+        
+        /*System.out.println("***Restaurante*** ");
         System.out.println("1. Registrarse");//nombre,edad, mesa, poner mesa(NPersonas)
         System.out.println("2. Ordenar La Cena");//plato de comida, precio,tipo, calorias/ bebida, precio, tipo(Alcoholica o no)
         System.out.println("3. Agragar a la Orden");//Agrega plato extra o postre
         System.out.println("Pedir Cuenta");//pago en efectivo o Tarjeta(Numero de Tarjeta})
-        System.out.println("Salir");
+        System.out.println("Salir");*/
         boolean flag = true;
-        Scanner entrada = new Scanner(System.in);
+        
         do{
             System.out.println("*** RESTAURANTE GUSTEAU ***");
             System.out.println("---------Bienvenido--------");
             System.out.println("1. Registrarse.\n2. Realizar Orden De Alimentos. \n3. Desea Agragar Algo Adicional A La Orden\n4. Pedir Cuenta\n5. Salir " );
-            int decision = entrada.nextInt(); entrada.nextLine();
+            int decision = entrada.nextInt(); 
             switch (decision){
                 case 1:
             {
-                //ingresoProductos(entrada, Productos, canProducto, CantProducto, precio,PrecioProducto, total);
+                ingresoDatos(entrada);
             }
                     break;
                 case 2:
-                    //ListaProductos(Productos);
+                    recibirOrden(entrada);
                     break;
                 case 3:
-                    //TotalPagar(total);
+                    agregarAdicional(entrada);
                     break;
                 case 4:
+                    pedirCuenta();
+                    break;
+                case 5:
                     flag = false;
                     break;
                     
@@ -54,4 +58,63 @@ public class Restaurante {
         
     }
     
+    private static void ingresoDatos(Scanner entrada){
+        Persona persona = new Persona();
+        String nombre = entrada.nextLine();
+        System.out.println("Ingrese Su Nombre: ");
+                persona.setNombre(entrada.nextLine());
+        System.out.println("Ingrese Su Edad: ");
+                persona.setedad(entrada.nextInt());
+    }
+    
+    private static void recibirOrden (Scanner entrada){
+        Plato plato = new Plato();
+        String NombrePlato = entrada.nextLine();
+        Bebida bebida = new Bebida();
+        //Ordenando el Platillo a Consumir
+        System.out.println("--Ordenando Platillo a Degustar--");
+        System.out.println("Ingrese Numeros De Platos a Ordenar ");
+                plato.setNumPlatos(entrada.nextInt());
+        System.out.println("Ingrese Nombre Del Platillo A Ordenar: ");
+                plato.setNombrePlato(entrada.nextLine());
+        System.out.println("Ingrese El Numero De Calorias: ");
+                plato.setCalorias(entrada.nextInt());
+        System.out.println("Ingrese El Precio Del Platillo: ");
+                plato.setPrecio(entrada.nextFloat());
+        //Ordenando el tipo de Bebida
+        System.out.println("---Ordene La Bebida---");
+        System.out.println("Ingrese El Nombre De La Bebida: ");
+                bebida.setNombreBebida(entrada.nextLine());
+        System.out.println("Ingrese EL Tipo de Bebida (Alcoholica o NO): ");
+                bebida.setTipoBebida(entrada.nextLine());
+        System.out.println("Ingrese Precio De La Bebida");
+                bebida.setPrecio(entrada.nextFloat());
+    }
+    
+    private static void agregarAdicional(Scanner entrada){
+        Plato plato = new Plato();
+        Bebida bebida = new Bebida();
+        //Se Agregan mas Platillos a la Orden
+        System.out.println("Ingrese Plato Adicional");
+        System.out.println("Ingrese EL Numero de Platos a Agregar: ");
+        plato.setNumPlatos(entrada.nextInt());
+        System.out.println("Ingrese Nombre Del Platillo A Ordenar: ");
+        plato.setNombrePlato(entrada.nextLine());
+        System.out.println("Ingrese El Numero De Calorias: ");
+        plato.setCalorias(entrada.nextInt());
+        System.out.println("Ingrese El Precio Del Platillo: ");
+        plato.setPrecio(entrada.nextFloat());
+        //Agregando Bebidas Adicionales
+        System.out.println("Ordene La Bebida Adicional");
+        System.out.println("Ingrese El Nombre De La Bebida: ");
+        bebida.setNombreBebida(entrada.nextLine());
+        System.out.println("Ingrese EL Tipo de Bebida (Alcoholica o NO): ");
+        bebida.setTipoBebida(entrada.nextLine());
+        System.out.println("Ingrese Precio De La Bebida");
+        bebida.setPrecio(entrada.nextInt());
+    }
+    
+    public static void pedirCuenta(){
+        
+    }
 }

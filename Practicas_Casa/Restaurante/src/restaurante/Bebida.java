@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package restaurante;
 
 /**
@@ -10,7 +6,50 @@ package restaurante;
  * @author Victor_Morales
  */
 public class Bebida {
-    String NombreBebida;
-    String Tipo;
-    float Precio;
+    //Definiendo Atributos
+    private String NombreBebida;
+    private String TipoBebida;
+     private float Precio;
+    
+public Bebida (String NombreBebida, String TipoBebida, float Precio){
+    this.NombreBebida = NombreBebida;
+    this.TipoBebida = TipoBebida;
+    this.Precio = Precio;
+}
+
+public Bebida(){
+    this.NombreBebida = null;
+    this.TipoBebida = null;
+    this.Precio = 0;
+}
+
+//creamos los setters y getters
+
+    public String getNombreBebida() {
+        return NombreBebida;
+    }
+
+    public void setNombreBebida(String NombreBebida) {
+        this.NombreBebida = NombreBebida;
+    }
+
+    public String getTipoBebida() {
+        return TipoBebida;
+    }
+
+    public void setTipoBebida(String TipoBebida) {
+        this.TipoBebida = TipoBebida;
+    }
+
+    public float getPrecio(float Precio) {
+        return Precio;
+    }
+    
+    public void setPrecio(){
+        this.Precio = Precio;
+    }
+
+    void setPrecio(float nextFloat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
