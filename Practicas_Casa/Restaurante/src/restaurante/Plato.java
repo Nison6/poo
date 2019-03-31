@@ -8,6 +8,7 @@ package restaurante;
 public class Plato {
     private int NumPlatos;
     private String NombrePlato;
+    private String Tipo;
     private int Calorias;
     private float Precio;
  
@@ -23,6 +24,10 @@ public class Plato {
         this.NombrePlato = null;
         this.Calorias = 0;
         this.Precio = 0;
+    }
+
+    Plato(int NumPlatos, String NombrePlato, int Calorias) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     //creamos setters y getters

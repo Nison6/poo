@@ -1,6 +1,7 @@
 
 package restaurante;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,8 @@ public class Restaurante {
         Scanner entrada = new Scanner (System.in);
         
         /* Se creo un objeto Persona con el constructor sin parametros  ya que el cleinte debe meter su informacion ahi*/
-        
+        ArrayList<Plato>platos = new ArrayList<>();
+        ArrayList<Bebida>bebidas = new ArrayList<>();
         
         
         /*System.out.println("***Restaurante*** ");
@@ -40,7 +42,7 @@ public class Restaurante {
             }
                     break;
                 case 2:
-                    recibirOrden(entrada);
+                    recibirOrden(entrada, platos, bebidas);
                     break;
                 case 3:
                     agregarAdicional(entrada);
@@ -67,28 +69,34 @@ public class Restaurante {
                 persona.setedad(entrada.nextInt());
     }
     
-    private static void recibirOrden (Scanner entrada){
+    private static void recibirOrden (Scanner entrada, ArrayList platos, ArrayList bebidas){
         Plato plato = new Plato();
-        String NombrePlato = entrada.nextLine();
+        
         Bebida bebida = new Bebida();
         //Ordenando el Platillo a Consumir
         System.out.println("--Ordenando Platillo a Degustar--");
         System.out.println("Ingrese Numeros De Platos a Ordenar ");
-                plato.setNumPlatos(entrada.nextInt());
+                int NumPlatos = entrada.nextInt();
         System.out.println("Ingrese Nombre Del Platillo A Ordenar: ");
-                plato.setNombrePlato(entrada.nextLine());
+                String NombrePlato = entrada.nextLine();
         System.out.println("Ingrese El Numero De Calorias: ");
-                plato.setCalorias(entrada.nextInt());
+                int Calorias = entrada.nextInt();
         System.out.println("Ingrese El Precio Del Platillo: ");
-                plato.setPrecio(entrada.nextFloat());
+                float Precio = entrada.nextFloat();
+                entrada.nextLine();
+                //Guardamos en una lista
+                platos.add(new Plato (NumPlatos, NombrePlato, Calorias, Precio));
         //Ordenando el tipo de Bebida
         System.out.println("---Ordene La Bebida---");
         System.out.println("Ingrese El Nombre De La Bebida: ");
-                bebida.setNombreBebida(entrada.nextLine());
+                String NombreBebida = entrada.nextLine();
         System.out.println("Ingrese EL Tipo de Bebida (Alcoholica o NO): ");
-                bebida.setTipoBebida(entrada.nextLine());
+                String TipoBebida = entrada.nextLine();
         System.out.println("Ingrese Precio De La Bebida");
-                bebida.setPrecio(entrada.nextFloat());
+                float precio = entrada.nextFloat();
+                
+                bebidas.add(new Bebida (NombreBebida, TipoBebida));
+                
     }
     
     private static void agregarAdicional(Scanner entrada){
@@ -111,7 +119,7 @@ public class Restaurante {
         System.out.println("Ingrese EL Tipo de Bebida (Alcoholica o NO): ");
         bebida.setTipoBebida(entrada.nextLine());
         System.out.println("Ingrese Precio De La Bebida");
-        bebida.setPrecio(entrada.nextInt());
+        //bebida.setPrecio(entrada.nextInt());
     }
     
     public static void pedirCuenta(){

@@ -23,6 +23,10 @@ public Bebida(){
     this.Precio = 0;
 }
 
+    Bebida(String NombreBebida, String TipoBebida) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 //creamos los setters y getters
 
     public String getNombreBebida() {
@@ -49,7 +53,5 @@ public Bebida(){
         this.Precio = Precio;
     }
 
-    void setPrecio(float nextFloat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
